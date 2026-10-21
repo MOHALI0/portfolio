@@ -70,7 +70,7 @@ export const portfolioData = {
       email: "mohali22611@gmail.com",
       phone: "+966 53 113 0542",
       linkedin: "https://linkedin.com/in/mohali22611",
-      github: "https://github.com/mohali22611",
+      github: "https://github.com/MOHALI0",
       whatsapp: "https://wa.me/966531130542",
     },
     stats: [
@@ -151,7 +151,7 @@ export const portfolioData = {
       featured: true,
       links: {
         liveDemo: "https://raqamat.vercel.app",
-        github: "https://github.com/mohali22611/raqamat",
+        github: "https://github.com/MOHALI0/Raqamat",
       },
       imageGradient: "from-blue-600 via-indigo-600 to-cyan-500",
     },
@@ -179,7 +179,7 @@ export const portfolioData = {
       ],
       featured: true,
       links: {
-        github: "https://github.com/mohali22611/raqamat",
+        github: "https://github.com/MOHALI0/Raqamat",
       },
       imageGradient: "from-emerald-600 via-teal-600 to-cyan-600",
     },
@@ -205,7 +205,7 @@ export const portfolioData = {
       ],
       featured: false,
       links: {
-        github: "https://github.com/mohali22611",
+        github: "https://github.com/MOHALI0",
       },
       imageGradient: "from-amber-600 via-orange-600 to-rose-600",
     },
@@ -232,7 +232,7 @@ export const portfolioData = {
       ],
       featured: false,
       links: {
-        github: "https://github.com/mohali22611",
+        github: "https://github.com/MOHALI0",
       },
       imageGradient: "from-purple-600 via-violet-600 to-indigo-600",
     },
@@ -258,7 +258,7 @@ export const portfolioData = {
       ],
       featured: false,
       links: {
-        github: "https://github.com/mohali22611",
+        github: "https://github.com/MOHALI0",
       },
       imageGradient: "from-zinc-700 via-slate-700 to-zinc-900",
     },
