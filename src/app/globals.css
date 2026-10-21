@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --bg-page: #0a0b10;
+    --bg-card: #12141c;
+    --bg-card-subtle: #171a24;
+    --border-card: rgba(255, 255, 255, 0.09);
+    --border-card-subtle: rgba(255, 255, 255, 0.05);
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --text-muted: #6b7280;
+    --pill-bg: rgba(255, 255, 255, 0.06);
+    --pill-text: #e5e7eb;
+    --pill-border: rgba(255, 255, 255, 0.08);
+    --accent: #34d399;
+    --accent-glow: rgba(52, 211, 153, 0.2);
+    --btn-primary-bg: #ffffff;
+    --btn-primary-text: #090a0f;
+    --shadow-island: 0 4px 24px -2px rgba(0, 0, 0, 0.4);
+    --shadow-float: 0 14px 36px -4px rgba(0, 0, 0, 0.6);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Island Container System matching inspiration aesthetic */
+.portfolio-island {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-island);
+  border-radius: 2rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 768px) {
+  .portfolio-island {
+    border-radius: 2.5rem;
+  }
+}
+
+.portfolio-island-subtle {
+  background-color: var(--bg-card-subtle);
+  border: 1px solid var(--border-card-subtle);
+}
+
+/* Glass Pill Utilities */
+.glass-pill {
+  background-color: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  color: var(--pill-text);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Clean Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.5);
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Subtle pulse dot */
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.pulsing-dot {
+  animation: pulseDot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
