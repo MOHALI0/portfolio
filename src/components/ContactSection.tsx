@@ -13,7 +13,7 @@ import {
   MapPin,
   Sparkles,
 } from "lucide-react";
-import { LinkedinIcon } from "@/components/Icons";
+import { LinkedinIcon, XIcon } from "@/components/Icons";
 
 export default function ContactSection() {
   const { personal } = portfolioData;
@@ -110,10 +110,21 @@ export default function ContactSection() {
             href={personal.contact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-zinc-300 dark:border-zinc-700 bg-white/80 dark:bg-zinc-800/80 text-zinc-800 dark:text-zinc-200 text-sm font-semibold hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-all shadow-sm"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-zinc-700 bg-zinc-850 text-zinc-200 text-sm font-semibold hover:bg-zinc-800 transition-all shadow-sm"
           >
-            <LinkedinIcon className="w-4 h-4 text-blue-500" />
+            <LinkedinIcon className="w-4 h-4 text-blue-400" />
             <span>LinkedIn</span>
+          </a>
+
+          {/* X (Twitter) Pill */}
+          <a
+            href={personal.contact.x}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-zinc-700 bg-zinc-850 text-zinc-200 text-sm font-semibold hover:bg-zinc-800 transition-all shadow-sm"
+          >
+            <XIcon className="w-4 h-4 text-zinc-100" />
+            <span>X (Twitter)</span>
           </a>
         </div>
 

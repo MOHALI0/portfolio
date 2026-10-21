@@ -40,9 +40,17 @@ export default function Footer() {
             href={personal.contact.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+            className="hover:text-zinc-100 transition-colors"
           >
             LinkedIn
+          </a>
+          <a
+            href={personal.contact.x}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-zinc-100 transition-colors"
+          >
+            X (Twitter)
           </a>
           <button
             onClick={scrollToTop}

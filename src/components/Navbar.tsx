@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { portfolioData } from "@/data/portfolioData";
 import { Copy, Check, FileDown, ArrowUpRight, Menu, X } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/Icons";
+import { GithubIcon, LinkedinIcon, XIcon } from "@/components/Icons";
 
 export default function Navbar() {
   const [copied, setCopied] = useState(false);
@@ -106,6 +106,17 @@ export default function Navbar() {
             aria-label="LinkedIn Profile"
           >
             <LinkedinIcon className="w-4 h-4" />
+          </a>
+
+          <a
+            href={portfolioData.personal.contact.x}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-2 rounded-full text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800 transition-colors"
+            title="X (Twitter) Profile"
+            aria-label="X Profile"
+          >
+            <XIcon className="w-4 h-4" />
           </a>
 
           {/* Mobile hamburger toggle */}

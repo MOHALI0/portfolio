@@ -82,6 +82,7 @@ export const portfolioData = {
       email: "mohali22611@gmail.com",
       phone: "+966 53 113 0542",
       linkedin: "https://linkedin.com/in/mohali22611",
+      x: "https://x.com/4i_iw",
       github: "https://github.com/MOHALI0",
       whatsapp: "https://wa.me/966531130542",
     },
