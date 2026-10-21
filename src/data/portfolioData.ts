@@ -1,12 +1,24 @@
 export interface Project {
   id: string;
   title: string;
+  arabicTitle?: string;
+  team?: string;
   subtitle: string;
   role: string;
-  category: "FinTech & Web" | "Systems & Python" | "Data Science & AI";
+  category: string;
   organization?: string;
   summary: string;
   description: string;
+  problemStatement?: string;
+  solutionVision?: string;
+  impactStatement?: string;
+  departmentalDashboards?: {
+    name: string;
+    arabicName: string;
+    roleDesc: string;
+  }[];
+  dataSources?: string[];
+  dataPipeline?: string[];
   techStack: string[];
   keyHighlights: string[];
   metrics?: { label: string; value: string }[];
@@ -24,7 +36,7 @@ export interface SkillCategory {
   description: string;
   skills: {
     name: string;
-    level: string; // e.g. "Advanced", "Proficient", "Experienced"
+    level: string;
     iconName: string;
     highlight?: boolean;
   }[];
@@ -60,11 +72,11 @@ export const portfolioData = {
     tagline: "Software Engineer & Full-Stack Developer",
     heroHeading: "Building digital products, scalable systems, and intelligent experiences.",
     heroBio:
-      "Computer Science student at Jazan University with a 4.80 / 5.00 GPA and Lead Developer experienced in architecting modern web applications, scalable data pipelines, and real-time interactive dashboards.",
+      "Computer Science student at Jazan University with a 4.80 / 5.00 GPA and Lead Developer of the Unified Financial File System (Raqamat Team). Specializing in Next.js, TypeScript, Open Banking architectures, and real-time analytics platforms.",
     location: "Najran, Saudi Arabia",
     status: {
       available: true,
-      text: "Available for new opportunities & projects",
+      text: "Available for new opportunities & FinTech innovation",
     },
     contact: {
       email: "mohali22611@gmail.com",
@@ -85,7 +97,7 @@ export const portfolioData = {
     { name: "Tuwaiq Academy", role: "Hackathon Sponsor & Organizer" },
     { name: "Alinma Bank", role: "FinTech Challenge Partner" },
     { name: "Google Developer Student Clubs", role: "Event Organizer & Core Member" },
-    { name: "Jazan University", role: "B.Sc. Computer Science" },
+    { name: "Jazan University", role: "B.Sc. Computer Science (4.80 GPA)" },
     { name: "Coursera", role: "Certified Data Science & Python" },
   ],
 
@@ -96,7 +108,7 @@ export const portfolioData = {
       description:
         "Designing sleek, component-driven interfaces with Next.js App Router, React 19, TypeScript, and Tailwind CSS. Obsessed with high performance, micro-interactions, and accessibility.",
       icon: "layout",
-      tags: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      tags: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS v4", "Framer Motion"],
     },
     {
       number: "02",
@@ -124,143 +136,95 @@ export const portfolioData = {
     },
   ] as CompetencyPillar[],
 
+  // ONLY the Unified Financial File System project as explicitly requested
   projects: [
     {
       id: "unified-financial-system",
       title: "Unified Financial File System",
-      subtitle: "AI-Driven FinTech Data Aggregator & Credit Advisor",
-      role: "Lead Developer",
-      organization: "Tuwaiq Academy & Alinma Bank FinTech Hackathon",
-      category: "FinTech & Web",
+      arabicTitle: "الهوية المالية الذكية (Smart Financial Identity)",
+      team: "فريق رقمات (Raqamat Team)",
+      subtitle: "Open Banking & AI-Driven Financial Identity Platform",
+      role: "Lead Developer & System Architect",
+      organization: "Tuwaiq Academy & Alinma Bank FinTech Hackathon 2026",
+      category: "FinTech & Open Banking",
       summary:
-        "Spearheaded front-end and system integration for an AI-powered financial aggregation platform designed to unify customer profiles and automate credit-risk evaluation.",
+        "An AI-powered Open Banking aggregation platform engineered by Raqamat Team (فريق رقمات) for the Tuwaiq Academy & Alinma Bank Hackathon. It centralizes fragmented client financial data into a single verified identity, eliminating redundant document uploads and empowering internal bank divisions with tailored decision-making dashboards.",
       description:
-        "Developed during the high-stakes Tuwaiq Academy & Alinma Bank FinTech Hackathon, this enterprise-grade platform centralizes multi-source banking APIs into clean, unified profiles. It features a real-time interactive analytics dashboard for internal loan officers, eliminating telemarketing redundancies, while an embedded AI assistant calculates individual credit factors to provide automated, actionable debt restructuring advice.",
-      techStack: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Recharts", "Framer Motion", "REST APIs"],
+        "Current retail and corporate banking services suffer from repetitive data entry, disparate verification procedures, and elongated customer journeys that restrict banks from making swift credit decisions. The Smart Financial Identity (الهوية المالية الذكية) bridges this divide by aggregating customer-consented Open Banking data, banking transactions, and SIMAH credit bureau metrics into an authenticated single record. Powered by Next.js 16, React 19, and Tailwind CSS v4, the platform translates raw client financials into dedicated operational views for Sales, Marketing, Risk Management, and AML/Fraud Compliance.",
+      problemStatement:
+        "Traditional banking requires customers to re-enter financial data and upload verification paperwork repeatedly across branches and services. This friction lengthens customer onboarding, increases abandonment, and delays credit risk evaluations.",
+      solutionVision:
+        "A unified digital financial file (ملف مالي موحد) built on Open Banking protocols and artificial intelligence. After explicit customer consent, the platform aggregates multi-source banking APIs, cleans and categorizes transaction history, and yields departmental dashboards tailored to each division's regulatory mandate.",
+      impactStatement:
+        "Accelerates loan underwriting and onboarding journeys, cuts telemarketing cold-call friction through data-backed product matching, and strengthens compliance against financial crime with automated risk thresholds.",
+      departmentalDashboards: [
+        {
+          name: "Sales Dashboard",
+          arabicName: "إدارة المبيعات",
+          roleDesc:
+            "Instant financing capacity calculation, pre-approved loan qualification, and personalized product recommendations based on verified affordability.",
+        },
+        {
+          name: "Marketing Dashboard",
+          arabicName: "إدارة التسويق",
+          roleDesc:
+            "Lifestyle and behavioral spending cluster analysis, enabling precision campaign targeting while eliminating redundant telemarketing calls.",
+        },
+        {
+          name: "Risk Management Dashboard",
+          arabicName: "إدارة المخاطر",
+          roleDesc:
+            "Real-time Debt Burden Ratio (DBR) calculations, credit limit simulations, and AI-driven factor breakdown aligned with Saudi central bank (SAMA) standards.",
+        },
+        {
+          name: "Compliance & AML Dashboard",
+          arabicName: "مكافحة الاحتيال وغسيل الأموال",
+          roleDesc:
+            "Automated Anti-Money Laundering transaction velocity checks, anomaly pattern recognition, and compliance risk threshold monitoring.",
+        },
+      ],
+      dataSources: [
+        "Customer-authorized profile inputs",
+        "Open Banking transactional APIs (consented)",
+        "SIMAH (الشركة السعودية للمعلومات الائتمانية) credit bureau data",
+        "Predictive scoring indicators generated by AI models",
+      ],
+      dataPipeline: [
+        "Data validation & completeness auditing",
+        "Deduplication & redundant record removal",
+        "Multi-currency & format normalization",
+        "Classification & AI feature generation for financial health metrics",
+      ],
+      techStack: [
+        "Next.js 16 (App Router)",
+        "React 19",
+        "TypeScript",
+        "Tailwind CSS v4",
+        "Recharts v3",
+        "Framer Motion",
+        "GSAP v3",
+        "PostCSS & CSS Variables",
+        "Open Banking REST APIs",
+      ],
       keyHighlights: [
-        "Integrated multi-source RESTful APIs to centralize, sanitize, and unify client financial data across banking departments.",
-        "Built real-time interactive analytics dashboards with Next.js, React, and Recharts enabling precision loan risk evaluation.",
-        "Engineered an automated AI advisory module analyzing individual credit factors to generate tailored scoring recommendations.",
-        "Crafted smooth, responsive micro-interactions using Tailwind CSS and Framer Motion to clearly convey financial metrics to stakeholders.",
+        "Spearheaded front-end architecture and system integration for Raqamat Team (فريق رقمات) at the Tuwaiq & Alinma Hackathon.",
+        "Engineered 4 dedicated departmental dashboards: Sales, Marketing, Risk Management, and AML/Compliance.",
+        "Integrated multi-source Open Banking data pipelines with automated data validation, deduplication, and normalization.",
+        "Created real-time financial health visualizations (Recharts v3) and high-impact UI micro-interactions (GSAP & Framer Motion).",
+        "Designed AI-assisted debt restructuring recommendations and automated credit scoring advice for users.",
       ],
       metrics: [
-        { label: "Data Centralization", value: "100%" },
-        { label: "Dashboard Latency", value: "< 120ms" },
-        { label: "Role", value: "Lead Architect" },
+        { label: "Data Redundancy", value: "0% (Unified File)" },
+        { label: "Targeted Dashboards", value: "4 Banking Divisions" },
+        { label: "Performance", value: "< 120ms Fast Load" },
+        { label: "Compliance Alignment", value: "SAMA & SIMAH Ready" },
       ],
       featured: true,
       links: {
-        liveDemo: "https://raqamat.vercel.app",
+        liveDemo: "https://unified-system-raqamat.netlify.app/",
         github: "https://github.com/MOHALI0/Raqamat",
       },
-      imageGradient: "from-blue-600 via-indigo-600 to-cyan-500",
-    },
-    {
-      id: "raqamat-platform",
-      title: "Raqamat FinTech Analytics Engine",
-      subtitle: "Enterprise Risk Assessment, AML & Financing Suite",
-      role: "Full-Stack Developer",
-      organization: "Independent FinTech Innovation",
-      category: "FinTech & Web",
-      summary:
-        "A full-stack banking intelligence dashboard featuring Anti-Money Laundering (AML) monitoring, customer 360 dossiers, financing capacity modeling, and role-based permissions.",
-      description:
-        "A modern web application built with Next.js 16 and Tailwind CSS v4. Incorporates comprehensive banking compliance modules, automated risk score calculation, credit capacity simulation, and workflow approvals tailored for Saudi financial institutions (SAMA compliance alignment).",
-      techStack: ["Next.js 16", "TypeScript", "Tailwind CSS v4", "Lucide Icons", "Recharts", "Zod Validation"],
-      keyHighlights: [
-        "Interactive KPI monitoring for financial capacity, monthly obligations, and risk factors.",
-        "Anti-Money Laundering (AML) transaction compliance checks with automated alerting thresholds.",
-        "Dynamic workflow state machine managing request review, compliance approval, and disbursement tracking.",
-        "Clean glassmorphism aesthetic with high-contrast accessibility and dark/light mode themes.",
-      ],
-      metrics: [
-        { label: "Compliance Alignment", value: "SAMA Ready" },
-        { label: "Workflow States", value: "6 Stages" },
-      ],
-      featured: true,
-      links: {
-        github: "https://github.com/MOHALI0/Raqamat",
-      },
-      imageGradient: "from-emerald-600 via-teal-600 to-cyan-600",
-    },
-    {
-      id: "autonomous-coffee-machine",
-      title: "Autonomous Coffee Dispensing Architecture",
-      subtitle: "Object-Oriented System Modeling & Telemetry Engine",
-      role: "Software Developer",
-      category: "Systems & Python",
-      summary:
-        "Scalable Python system implementing finite state machine logic for recipe composition, live ingredient inventory tracking, and simulated multi-currency payment handling.",
-      description:
-        "Engineered an automated beverage preparation simulator adhering to strict Object-Oriented Programming (OOP) paradigms. The system features real-time inventory threshold monitoring, dynamic currency transaction verification with exact change computation, and an interactive diagnostic shell for maintenance audits.",
-      techStack: ["Python 3", "OOP Architecture", "State Machines", "Error Handling", "CLI Shell"],
-      keyHighlights: [
-        "Engineered decoupled classes for resource telemetry, payment processing, and drink preparation recipes.",
-        "Built automatic inventory deduction and low-stock alerting to prevent mid-cycle formulation failures.",
-        "Implemented secure transaction rollback logic guaranteeing zero coin loss upon transaction cancellation.",
-      ],
-      metrics: [
-        { label: "Architecture", value: "Modular OOP" },
-        { label: "Inventory Accuracy", value: "100%" },
-      ],
-      featured: false,
-      links: {
-        github: "https://github.com/MOHALI0",
-      },
-      imageGradient: "from-amber-600 via-orange-600 to-rose-600",
-    },
-    {
-      id: "data-science-pipeline",
-      title: "Python Data Science & Analytics Suite",
-      subtitle: "Exploratory Analysis, Numerical Pipelines & Statistical Modeling",
-      role: "Data Analyst & Programmer",
-      organization: "Coursera & Academic Research",
-      category: "Data Science & AI",
-      summary:
-        "Comprehensive numerical processing and statistical analysis suite utilizing NumPy and Pandas for data munging, regression models, and exploratory visualizations.",
-      description:
-        "Developed a suite of Python data exploration scripts supporting academic research and practical data analysis. Includes automated handling of sparse data, tabular aggregations, correlation matrix evaluations, and visual plotting of complex statistical distributions.",
-      techStack: ["Python", "Pandas", "NumPy", "Matplotlib", "Data Wrangling", "Statistical Inference"],
-      keyHighlights: [
-        "Built automated ETL pipelines transforming raw, unorganized CSV datasets into clean multidimensional DataFrames.",
-        "Conducted deep statistical profiling to detect anomalies, outliers, and trend distributions.",
-        "Formed the practical foundation for Coursera Data Science in Python certification.",
-      ],
-      metrics: [
-        { label: "Data Quality", value: "Zero Null Leaks" },
-        { label: "Libraries", value: "NumPy / Pandas" },
-      ],
-      featured: false,
-      links: {
-        github: "https://github.com/MOHALI0",
-      },
-      imageGradient: "from-purple-600 via-violet-600 to-indigo-600",
-    },
-    {
-      id: "crypto-decoder-game",
-      title: "Cryptographic Decoder & Algorithmic Search Engine",
-      subtitle: "Cipher Decryption Utilities & Logarithmic Search Simulation",
-      role: "Systems & Security Programmer",
-      category: "Systems & Python",
-      summary:
-        "Security-focused algorithmic tools implementing custom cipher translation, pattern substitution, and optimal binary search game logic.",
-      description:
-        "A suite of algorithms tackling string manipulation, substitution cryptography, and logarithmic search operations. Includes custom ASCII rotation decoders and an adaptive number guessing engine optimized for minimal time complexity O(log n).",
-      techStack: ["Python", "Algorithms", "Cryptography", "Binary Search", "Data Structures"],
-      keyHighlights: [
-        "Implemented symmetric shift encryption/decryption routines with arbitrary offset handling.",
-        "Designed optimal divide-and-conquer binary search feedback loop ensuring minimal guess attempts.",
-        "Robust input validation and defensive programming against malicious terminal inputs.",
-      ],
-      metrics: [
-        { label: "Search Complexity", value: "O(log n)" },
-        { label: "Cipher Versatility", value: "Custom Keys" },
-      ],
-      featured: false,
-      links: {
-        github: "https://github.com/MOHALI0",
-      },
-      imageGradient: "from-zinc-700 via-slate-700 to-zinc-900",
+      imageGradient: "from-emerald-600 via-teal-600 to-cyan-500",
     },
   ] as Project[],
 
@@ -272,11 +236,11 @@ export const portfolioData = {
         { name: "Next.js (App Router)", level: "Advanced", iconName: "next", highlight: true },
         { name: "React 19", level: "Advanced", iconName: "react", highlight: true },
         { name: "TypeScript", level: "Proficient", iconName: "typescript", highlight: true },
-        { name: "Tailwind CSS", level: "Advanced", iconName: "tailwind", highlight: true },
+        { name: "Tailwind CSS v4", level: "Advanced", iconName: "tailwind", highlight: true },
         { name: "Framer Motion", level: "Proficient", iconName: "motion", highlight: true },
+        { name: "GSAP v3", level: "Proficient", iconName: "sparkles", highlight: true },
+        { name: "Recharts v3 & Data Viz", level: "Proficient", iconName: "chart", highlight: true },
         { name: "HTML5 & Semantic Web", level: "Advanced", iconName: "html" },
-        { name: "CSS3 / Modern Layouts", level: "Advanced", iconName: "css" },
-        { name: "Recharts & Data Viz", level: "Proficient", iconName: "chart" },
       ],
     },
     {
@@ -287,7 +251,7 @@ export const portfolioData = {
         { name: "Java (OOP)", level: "Proficient", iconName: "java", highlight: true },
         { name: "SQL & Databases", level: "Proficient", iconName: "database", highlight: true },
         { name: "JavaScript (ES6+)", level: "Advanced", iconName: "javascript" },
-        { name: "RESTful API Integration", level: "Advanced", iconName: "api", highlight: true },
+        { name: "Open Banking REST APIs", level: "Advanced", iconName: "api", highlight: true },
         { name: "Data Structures & Algos", level: "Proficient", iconName: "code" },
       ],
     },
@@ -319,20 +283,20 @@ export const portfolioData = {
     {
       period: "2026",
       year: "2026",
-      title: "Lead Developer | Unified Financial File System",
-      role: "Lead Front-End Architect & Integrator",
+      title: "Lead Developer | Unified Financial File System (الهوية المالية الذكية)",
+      role: "Lead Front-End Architect & Integrator — فريق رقمات (Raqamat Team)",
       organization: "Tuwaiq Academy & Alinma Bank FinTech Hackathon",
       location: "Riyadh / Saudi Arabia",
       badge: "FinTech Hackathon Lead",
       badgeType: "award",
       description:
-        "Led engineering and technical presentation for a flagship AI financial aggregator designed to centralize consumer banking records across organizational branches, earning commendation from senior industry mentors.",
+        "Spearheaded engineering and technical presentation for the Smart Financial Identity platform with Raqamat Team. Built an AI-driven Open Banking dashboard centralizing client financials and creating dedicated workflows for Sales, Marketing, Risk, and AML compliance.",
       achievements: [
-        "Architected complete front-end system with Next.js, React, and TypeScript within intense hackathon timeline.",
-        "Integrated multi-source mock banking APIs and automated credit evaluation modules.",
-        "Delivered a live functioning demo and executive deck to fintech judging panels.",
+        "Architected full Next.js 16 + React 19 interactive platform with live Netlify deployment.",
+        "Integrated Open Banking mock pipelines with automated deduplication and data cleaning.",
+        "Delivered a live functioning demo (https://unified-system-raqamat.netlify.app/) and presentation pitch.",
       ],
-      tags: ["Next.js", "AI Credit", "Hackathon", "Leadership"],
+      tags: ["Next.js 16", "Open Banking", "FinTech", "Leadership"],
     },
     {
       period: "2025 — Present",
